@@ -11,9 +11,5 @@
   </ItemGroup>
 	<Target Name="StartFrontend" BeforeTargets="Build">
 		<Message Text="Starting frontend dev server..." Importance="high" />
-		<Exec
-		  Command="start cmd /k &quot;cd /d $(MSBuildProjectDirectory)\..\frontend &amp;&amp; npm install &amp;&amp; npm run dev &amp;&amp; start http://localhost:5173&quot;"
-		  Condition="'$(OS)' == 'Windows_NT'"
-		  ContinueOnError="true" />
 	</Target>
 </Project>

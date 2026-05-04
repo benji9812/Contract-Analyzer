@@ -20,18 +20,15 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<PdfParsingService>();
 builder.Services.AddScoped<ClaudeAnalysisService>();
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.WithOrigins(builder.Configuration["AllowedOrigins"]!)
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins("http://localhost:5173", "http://localhost:5174")
               .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
+              .AllowAnyMethod());
 });
 
 var app = builder.Build();
 
-app.UseCors();
+app.UseCors("AllowFrontend");
 app.MapControllers();
 app.Run();
