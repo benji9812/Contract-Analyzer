@@ -10,7 +10,11 @@ export function AnalysisPanel({ result }: AnalysisPanelProps) {
   return (
     <div className="analysis-panel">
       <div className="analysis-header">
-        <RiskScore score={result.riskScore} />
+              <RiskScore
+                  score={result.riskScore}
+                  redCount={result.redFlags.length}
+                  yellowCount={result.yellowWarnings.length}
+              />
         <div className="analysis-badges">
           {result.redFlags.length > 0 && (
             <span className="badge badge--red">

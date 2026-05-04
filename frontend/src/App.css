@@ -439,3 +439,39 @@
         transform: rotate(360deg);
     }
 }
+
+.risk-score-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.risk-score-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.risk-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.badge-red {
+    background: rgba(220, 38, 38, 0.15);
+    color: #fca5a5;
+}
+
+.badge-yellow {
+    background: rgba(217, 119, 6, 0.15);
+    color: #fcd34d;
+}
