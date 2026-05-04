@@ -1,3 +1,5 @@
+using backend.Services;
+
 // Ladda .env om den finns
 var envPath = Path.Combine(Directory.GetCurrentDirectory(), ".env");
 if (File.Exists(envPath))
