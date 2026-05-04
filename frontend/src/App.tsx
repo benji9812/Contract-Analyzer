@@ -14,17 +14,22 @@ function LoadingState() {
 }
 
 function EmptyState() {
-  return (
-    <div className="empty-state">
-      <span className="empty-state-icon">🔍</span>
-      <h2 className="empty-state-title">Ingen analys ännu</h2>
-      <p className="empty-state-desc">
-        Ladda upp ett avtal till vänster för att komma igång. AI:n analyserar
-        avtalet och identifierar risker, ovanliga klausuler och ger en
-        lättläst sammanfattning.
-      </p>
-    </div>
-  );
+    return (
+        <div className="empty-state">
+            <span className="empty-state-icon">🔍</span>
+            <h2 className="empty-state-title">Redo att analysera</h2>
+            <p className="empty-state-desc">
+                Ladda upp ett avtal så går AI:n igenom det och hittar röda flaggor,
+                ovanliga klausuler och förklarar vad du faktiskt skriver under på —
+                på vanlig svenska.
+            </p>
+            <div className="empty-examples">
+                <span>✅ Hyresavtal</span>
+                <span>✅ Anställningsavtal</span>
+                <span>✅ Köpeavtal</span>
+            </div>
+        </div>
+    );
 }
 
 export default function App() {
