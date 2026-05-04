@@ -63,10 +63,9 @@ export function UploadPanel({ onResult, onLoading, onError }: UploadPanelProps) 
 
   return (
     <div className="upload-panel">
-      <div className="upload-logo">
-        <span className="upload-logo-icon">📄</span>
-        <h1 className="upload-logo-title">Avtal-Analyzern</h1>
-      </div>
+<div className="upload-logo">
+  <h1 className="upload-logo-title">RED<span>FLAG</span></h1>
+</div>
       <p className="upload-subtitle">
         Ladda upp ett avtal — AI:n hittar riskerna åt dig.
       </p>
