@@ -8,7 +8,11 @@ namespace backend.Services;
 
 public class ClaudeAnalysisService(IConfiguration config, HttpClient http)
 {
-    private readonly string _apiKey = config["Claude:ApiKey"] ?? string.Empty;
+    private readonly string _apiKey =
+        Environment.GetEnvironmentVariable("CLAUDE_API_KEY")
+        ?? config["Claude:ApiKey"]
+        ?? throw new InvalidOperationException("CLAUDE_API_KEY saknas. Lägg till den i backend/.env");
+    
     private readonly string _model = config["Claude:Model"] ?? "claude-sonnet-4-5";
 
     public async Task<AnalysisResult> AnalyzeAsync(string contractText)
