@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 580" width="680" height="580">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e63946" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#e63946" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dothalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff4455" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ff4455" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="docgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="redgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3a4a"/>
+      <stop offset="100%" stop-color="#a00010"/>
+    </linearGradient>
+    <filter id="redglow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="680" height="580" fill="#0b0b0b"/>
+
+  <ellipse cx="340" cy="210" rx="160" ry="140" fill="url(#halo)"/>
+  <rect x="255" y="85" width="170" height="210" rx="18" fill="#e63946" opacity="0.12" filter="url(#softglow)"/>
+
+  <path d="M265,95 L385,95 L415,125 L415,295 Q415,305 405,305 L265,305 Q255,305 255,295 L255,105 Q255,95 265,95 Z"
+    fill="url(#docgrad)" stroke="#333" stroke-width="1.5"/>
+  <path d="M385,95 L415,125 L385,125 Z" fill="#111" stroke="#333" stroke-width="1"/>
+  <line x1="385" y1="95" x2="415" y2="125" stroke="#444" stroke-width="1.5"/>
+
+  <line x1="278" y1="155" x2="370" y2="155" stroke="#444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="278" y1="176" x2="385" y2="176" stroke="#444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="278" y1="197" x2="360" y2="197" stroke="#444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="278" y1="240" x2="385" y2="240" stroke="#444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="278" y1="261" x2="345" y2="261" stroke="#444" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="230" y="213" width="240" height="8" rx="4" fill="#e63946" opacity="0.12"/>
+  <line x1="230" y1="217" x2="460" y2="217" stroke="#e63946" stroke-width="1.5" opacity="0.8" filter="url(#redglow)"/>
+
+  <ellipse cx="458" cy="217" rx="22" ry="22" fill="url(#dothalo)" opacity="0.5"/>
+  <circle cx="458" cy="217" r="8" fill="url(#redgrad)" filter="url(#redglow)"/>
+  <circle cx="458" cy="217" r="3.5" fill="white" opacity="0.9"/>
+
+  <line x1="408" y1="68" x2="408" y2="100" stroke="#e63946" stroke-width="2.5" stroke-linecap="round" filter="url(#redglow)"/>
+  <polygon points="408,68 432,77 408,88" fill="url(#redgrad)" filter="url(#redglow)"/>
+
+  <text x="340" y="375"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Helvetica Neue', sans-serif"
+    font-size="58"
+    font-weight="800"
+    letter-spacing="10"
+    fill="white">RED</text>
+
+  <text x="340" y="430"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Helvetica Neue', sans-serif"
+    font-size="58"
+    font-weight="200"
+    letter-spacing="14"
+    fill="#e63946">FLAG</text>
+
+  <text x="340" y="464"
+    text-anchor="middle"
+    font-family="system-ui, sans-serif"
+    font-size="13"
+    font-weight="400"
+    letter-spacing="6"
+    fill="#444">CONTRACT ANALYZER</text>
+</svg>

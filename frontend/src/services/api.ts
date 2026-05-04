@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AnalysisResult } from "../types/analysis";
 
-const BASE = "http://localhost:5000/api";
+const BASE = "http://localhost:5057/api";
 
 export async function analyzeContract(
   file?: File,
