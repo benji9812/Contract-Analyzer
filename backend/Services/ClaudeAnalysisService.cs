@@ -1,4 +1,3 @@
-using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using backend.Models;
@@ -8,20 +7,16 @@ namespace backend.Services;
 public class ClaudeAnalysisService(IConfiguration config, HttpClient http)
 {
     private readonly string _apiKey = config["Claude:ApiKey"] ?? string.Empty;
-    private readonly string _model = config["Claude:Model"] ?? "claude-haiku-4-5-20251001";
+    private readonly string _model = config["Claude:Model"] ?? "claude-sonnet-4-6";
 
     public async Task<AnalysisResult> AnalyzeAsync(string contractText)
     {
         var prompt = BuildPrompt(contractText);
-
         var requestBody = new
         {
             model = _model,
-            max_tokens = 1024,
-            messages = new[]
-            {
-                new { role = "user", content = prompt }
-            }
+            max_tokens = 2048,
+            messages = new[] { new { role = "user", content = prompt } }
         };
 
         var json = JsonSerializer.Serialize(requestBody);
@@ -67,10 +62,22 @@ public class ClaudeAnalysisService(IConfiguration config, HttpClient http)
     }
 
     private string BuildPrompt(string text) => $$"""
-        Analysera detta avtal. Svara ENDAST med JSON, inga förklaringar.
-        {"summary":"kort sammanfattning på svenska","riskScore":1-10,"redFlags":[{"quote":"citat","explanation":"förklaring","pageHint":null}],"yellowWarnings":[{"quote":"citat","explanation":"förklaring","pageHint":null}]}
-        Max 5 röda flaggor, max 5 gula varningar. Bara de viktigaste.
-        AVTAL:
+        Du är en juridisk assistent som analyserar svenska avtal.
+        Analysera följande avtalstext och returnera EXAKT detta JSON-format:
+        {
+          "summary": "sammanfattning på vanlig svenska av vad användaren faktiskt går med på",
+          "riskScore": <heltal 1-10>,
+          "redFlags": [
+            { "quote": "exakt citat ur texten", "explanation": "förklaring på svenska", "pageHint": null }
+          ],
+          "yellowWarnings": [
+            { "quote": "exakt citat", "explanation": "förklaring", "pageHint": null }
+          ]
+        }
+        Röda flaggor = klausuler som är direkt riskabla eller ovanliga till användarens nackdel.
+        Gula varningar = klausuler som är ovanliga men inte nödvändigtvis farliga.
+        Citera ALLTID exakt ur texten. Svara BARA med JSON, inget annat.
+        AVTALSTEXT:
         {{text}}
         """;
 }
