@@ -1,0 +1,20 @@
+# =============================================
+# Backend — NuGet-paket (hanteras av .csproj)
+# Installeras automatiskt via: dotnet restore
+# =============================================
+# PdfPig >= 0.1.9
+# System.Text.Json (ingår i .NET 9)
+#
+# Se backend/backend.csproj för exakta versioner
+
+# =============================================
+# Frontend — npm-paket
+# Installeras via: npm install (i frontend/)
+# =============================================
+# axios          — HTTP-anrop mot backend
+# react          — UI-ramverk
+# react-dom      — DOM-rendering
+# typescript     — Typsäkerhet
+# vite           — Byggverktyg & dev-server
+#
+# Se frontend/package.json för exakta versioner
